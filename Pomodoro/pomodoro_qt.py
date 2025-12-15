@@ -78,7 +78,7 @@ class PomodoroWindow(QWidget):
         # Imagen y timer
         tomato_frame = QFrame()
         tomato_frame.setFixedSize(400, 400)
-        tomato_layout = QStackedLayout(tomato_frame)
+        self.tomato_layout = QStackedLayout(tomato_frame)
 
         self.tomato_label = QLabel()
         pixmap = QPixmap(resource_path("tomato.png")).scaled(
@@ -86,13 +86,14 @@ class PomodoroWindow(QWidget):
         )
         self.tomato_label.setPixmap(pixmap)
         self.tomato_label.setAlignment(Qt.AlignCenter)
-        tomato_layout.addWidget(self.tomato_label)
+        self.tomato_label.setStyleSheet("background-color: transparent;")
+        self.tomato_layout.addWidget(self.tomato_label)
 
         self.timer_label = QLabel("00:00")
         self.timer_label.setFont(QFont(FONT_NAME, 70, QFont.Bold))
         self.timer_label.setAlignment(Qt.AlignCenter)
         self.timer_label.setStyleSheet("color: #740118; background: transparent;")
-        tomato_layout.addWidget(self.timer_label)
+        self.tomato_layout.addWidget(self.timer_label)
 
         tomato_container = QHBoxLayout()
         tomato_container.addWidget(tomato_frame, alignment=Qt.AlignCenter)
@@ -218,6 +219,7 @@ class PomodoroWindow(QWidget):
         self.remaining_cycles = self.total_cycles
         self.update_tomatoes()
         self.start_btn.setEnabled(True)
+        self.tomato_layout.setCurrentWidget(self.tomato_label)
 
     def start_timer(self):
         self.apply_times()
@@ -245,6 +247,7 @@ class PomodoroWindow(QWidget):
             reproducir_spotify()  # 🔥 Spotify solo inicia en tiempo de trabajo
 
         self.start_btn.setEnabled(False)
+        self.tomato_layout.setCurrentWidget(self.timer_label)
         self.count_down()
 
     def count_down(self):
@@ -267,6 +270,7 @@ class PomodoroWindow(QWidget):
             self.start_timer()
         else:
             self.start_btn.setEnabled(True)
+            self.tomato_layout.setCurrentWidget(self.tomato_label)
 
     def notify(self, title, message):
         self.tray_icon.showMessage(title, message, QIcon(resource_path("tomato.ico")), 4000)
