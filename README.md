@@ -27,7 +27,6 @@ Una aplicación Pomodoro simple, amigable y visual, creada en Python con PyQt5, 
 ## 📂 Estructura del proyecto
 
 Pomodoro/
-│
 ├── pomodoro_qt.py
 ├── tomato.png
 ├── tomato.ico
