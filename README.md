@@ -8,8 +8,7 @@ Una aplicación Pomodoro simple, amigable y visual, creada en Python con PyQt5, 
 
 - ⏱️ Temporizador Pomodoro configurable  
 - 🍅 Indicador visual de ciclos completados  
-- 🔔 Notificaciones automáticas en cada cambio de estado  
-- 🎵 Apertura automática de Spotify solo durante el tiempo de trabajo  
+- 🔔 Notificaciones automáticas en cada cambio de estado    
 - 🖥️ Icono en la ventana y en la bandeja del sistema  
 - 🔁 Opción de auto-ciclo  
 - 🎨 Interfaz amigable y colores suaves  
